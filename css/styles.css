@@ -55,6 +55,7 @@
     }
 
     .header{
+        /* position: relative; */
        padding: 24px 0;
        border-bottom: 1px solid var(--accent);
         box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
@@ -89,12 +90,26 @@
     }   
 
     .header-nav{
+        position: relative;
         display: flex;
         margin-left: auto;
         gap: 40px;
     }
 
+    .link-nav::after,
+    .contatc-link::after{
+        content:'';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        bottom: -26px;
+        background-color: var(--active-button);
+    }
+
     .header-link{
+        position: relative;
         margin-left: 76px;
         display: flex;
         gap: 40px;
@@ -121,6 +136,8 @@
     }
 
     .link-nav{
+        position: relative;
+        display: block;
         line-height: 1.5;
         letter-spacing: 0.02px;
         color: var(--section-colour);
@@ -133,6 +150,8 @@
     }
 
     .contatc-link{
+        position: relative;
+        display: block;
         line-height: 1.5;
         letter-spacing: 0.02em;
         font-weight: 400;
