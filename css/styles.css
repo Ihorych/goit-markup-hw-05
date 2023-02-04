@@ -90,7 +90,6 @@
     }   
 
     .header-nav{
-        position: relative;
         display: flex;
         margin-left: auto;
         gap: 40px;
@@ -98,18 +97,23 @@
 
     .link-nav::after,
     .contatc-link::after{
-        content:'';
+        content: '';
         position: absolute;
         display: block;
         width: 100%;
         height: 4px;
         border-radius: 2px;
-        bottom: -26px;
-        background-color: var(--active-button);
+        background-color: var(--primary-brand);
+        bottom: -27px;
+        opacity: 0;
+        }
+    
+    .header-link-item:hover .link-nav::after,
+    .header-nav-item:hover .contatc-link::after{
+        opacity: 1;
     }
 
     .header-link{
-        position: relative;
         margin-left: 76px;
         display: flex;
         gap: 40px;
@@ -137,7 +141,6 @@
 
     .link-nav{
         position: relative;
-        display: block;
         line-height: 1.5;
         letter-spacing: 0.02px;
         color: var(--section-colour);
@@ -151,7 +154,6 @@
 
     .contatc-link{
         position: relative;
-        display: block;
         line-height: 1.5;
         letter-spacing: 0.02em;
         font-weight: 400;
@@ -194,7 +196,49 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 48px;
-        /* background-color: tomato; */
+    }
+
+    .backdrop{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(46, 47, 66, 0.4);
+        pointer-events: none;
+    }
+
+    .backdrop.is-hidden{
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .modal{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        min-width: 408px;
+        min-height: 576px;
+        padding: 20 10;
+        background: var(--cloud-bckground);
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+                    0px 1px 3px rgba(0, 0, 0, 0.12),
+                    0px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    .modal-button{
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 24px;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        cursor: pointer; 
     }
 
     .work-list{
@@ -317,7 +361,7 @@
         fill: var(--active-button);  
     }
 
-    button{
+    .mainpage-button{
         background-color: var(--primary-brand);
         color: var(--white-base);
         cursor: pointer;
@@ -347,6 +391,7 @@
         min-height: 48px;
         display: flex;
         padding: 12px 24px;
+        cursor: pointer;
     }
 
     .selection-button:hover,
@@ -406,6 +451,26 @@
         box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
          0px 1px 1px rgba(46, 47, 66, 0.16), 
          0px 2px 1px rgba(46, 47, 66, 0.08);
+    }
+
+    .portfolio-thumb{
+        position: relative;
+    }
+
+    .portfolio-thumb::before{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-brand);
+        opacity: 0;
+        animation-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .portfolio-item:hover .portfolio-thumb::before{
+        opacity: 1;
     }
 
     .item-image{
