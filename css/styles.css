@@ -457,6 +457,24 @@
         position: relative;
     }
 
+    .hover-text{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--cloud-bckground);
+        opacity: 0;
+
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        min-width: 296px;
+    }
+
+    .portfolio-item{
+        position: relative;
+    }
+
     .portfolio-thumb::before{
         content: '';
         position: absolute;
@@ -470,6 +488,9 @@
     }
 
     .portfolio-item:hover .portfolio-thumb::before{
+        opacity: 1;
+    }
+    .portfolio-item:hover .hover-text{
         opacity: 1;
     }
 
